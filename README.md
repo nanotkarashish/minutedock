@@ -7,8 +7,8 @@ Minutedock app
 2. Install forever.js
 3. Install mongodb
 4. Clone repo and checkout the release branch or download the latest release.
-5. From '\<path_to_repo\>/src/node', run 'npm install'
-6. There is config file, app.json at '\<path_to_repo\>/src/node/config'. Override the properties from default to other sections according to environment name.
+5. run 'npm install'
+6. There is config file, app.json at '\<path_to_repo\>/config'. Override the properties from default to other sections according to environment name.
 7. Set use.https to true or false in app.json. Keep it true if you don't have https web server sitting in front of node server.
 8. If using https, create ssl certificates. Create ssl key and ssl cert files. Modify app.json and set ssl.key.path and ssl.cert.path
 9. Regenerate the required salts and secrets mentioned in app.json. Don't use the defaults.
