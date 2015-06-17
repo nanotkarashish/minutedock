@@ -39,6 +39,15 @@
 			</br>
  			<ng-view></ng-view>	    	
     	</div>
-	    <script src="js/lib/require.js" data-main="js/main.min"></script>
+	    <script src="js/lib/require.js"></script>
+	    <script>
+	    	require(['js/main.min'], function() {
+	    		// Configuration loaded now, safe to do other require calls
+	    		// that depend on that config.
+				require(['angular', 'bootstrap', 'configuration/quickdateConfiguration', 'events/locationChangeStart', 'controllers/menuController', 'controllers/alertsController', 'interceptors/loadingInterceptor', 'interceptors/httpErrorInterceptor', 'routes/defaultRoutes', 'routes/registrationRoutes', 'routes/entriesPageRoutes', 'routes/searchRoutes'], function(angular) {
+					angular.bootstrap(document, ['app']);
+				});
+	    	}); 
+	    </script>
 	</body>
 </html>
