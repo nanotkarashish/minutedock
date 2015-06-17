@@ -2,7 +2,8 @@ var gulp = require('gulp')
 	, nodemon = require('gulp-nodemon')
 	, rjs = require('gulp-requirejs')
   , minifyCss = require('gulp-minify-css')
-  , rename = require('gulp-rename');
+  , rename = require('gulp-rename')
+  , uglify = require('gulp-uglify');
 
 gulp.task('minify-js', function(){
 	rjs({
@@ -39,6 +40,7 @@ gulp.task('minify-js', function(){
       }
     }
   })
+  .pipe(uglify())
   .pipe(gulp.dest('src/static/js'));
 });
 
@@ -63,6 +65,4 @@ gulp.task('test', ['start', 'start-minutedock-stub'], function(){
 
 });
 
-gulp.task('default', ['start'], function(){
-	console.log('yay');
-});
+gulp.task('default', ['build', 'start']);
