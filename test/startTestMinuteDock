@@ -1,3 +1,0 @@
-./startServers
-cd setUp/
-node mongoSetup

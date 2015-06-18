@@ -1,5 +1,0 @@
-cd minutedockStub/
-./restart
-cd ../../
-./restart test
-cd test/
