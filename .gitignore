@@ -1,8 +1,6 @@
 node_modules/
 *.log
 testResults/
-*.min.js
-*.min.css
 app.json.back
 minutedock-dist*
 .idea/
