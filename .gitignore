@@ -5,3 +5,4 @@ testResults/
 *.min.css
 app.json.back
 minutedock-dist*
+.idea/
