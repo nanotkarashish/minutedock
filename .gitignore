@@ -4,3 +4,5 @@ testResults/
 app.json.back
 minutedock-dist*
 config/app.json
+.idea
+*.iml
