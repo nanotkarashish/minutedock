@@ -3,7 +3,8 @@ var gulp = require('gulp')
 	, rjs = require('gulp-requirejs')
   , minifyCss = require('gulp-minify-css')
   , rename = require('gulp-rename')
-  , uglify = require('gulp-uglify');
+  , uglify = require('gulp-uglify')
+  , protractor = require('gulp-angular-protractor');
 
 gulp.task('minify-js', function(){
 	rjs({
@@ -58,11 +59,26 @@ gulp.task('start', function () {
     script: 'src/node/minutedock.js'
   , ext: 'js html'
   , env: { 'NODE_ENV': 'development' }
-  })
+  }).on('error', function(e) { console.err(e); })
 });
 
-gulp.task('test', ['start', 'start-minutedock-stub'], function(){
+gulp.task('start-api-stub', function () {
+  nodemon({
+    script: 'test/minutedockStub/stub.js'
+  , ext: 'js'
+  , env: { 'NODE_ENV': 'test' }
+  }).on('error', function(e) { console.err(e); })
+});
 
+gulp.task('test', ['start', 'start-api-stub'], function(){
+  gulp.src(['./test/**/*.js'])
+    .pipe(protractor({
+        'configFile': 'test/conf.js',
+        'args': [],
+        'autoStartStopServer': true,
+        'debug': true
+    }))
+    .on('error', function(e) { console.err(e); })
 });
 
 gulp.task('default', ['build', 'start']);
