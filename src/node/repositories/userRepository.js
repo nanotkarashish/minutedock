@@ -3,7 +3,7 @@ var Q = require('q');
 var crypto = require('crypto');
 var uuid = require('node-uuid');
 
-var config = require('konfig')().app;
+var config = require('config');
 var globalSalt = config["apikey.encryption.global.salt"];
 
 MongoClient.connect(config["mongodb.uri"], function(err, db) {

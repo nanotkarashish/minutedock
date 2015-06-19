@@ -4,7 +4,7 @@ var crypto = require('crypto');
 var moment = require('moment');
 require('moment-isoduration');
 
-var config = require('konfig')().app;
+var config = require('config');
 var globalSalt = config["identifier.encryption.global.salt"];
 
 MongoClient.connect(config["mongodb.uri"], function(err, db) {
