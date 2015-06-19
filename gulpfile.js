@@ -73,8 +73,8 @@ gulp.task('start-api-stub', function () {
 gulp.task('test', ['start', 'start-api-stub'], function(){
   gulp.src(['./test/**/*.js'])
     .pipe(protractor({
-        'configFile': 'test/conf.js',
-        'args': [],
+        'configFile': './test/conf.js',
+        'args': ['--baseUrl', ''],
         'autoStartStopServer': true,
         'debug': true
     }))
