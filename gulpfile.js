@@ -56,7 +56,7 @@ gulp.task('test', ['build', 'start'], function(){
         'autoStartStopServer': true,
         'debug': true
     }))
-    .on('error', function(e) { throw e; })
+    .on('error', function(e) { throw e; });
 });
 
 gulp.task('default', ['build', 'start']);
