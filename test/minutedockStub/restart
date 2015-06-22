@@ -1,4 +1,0 @@
-echo Stopping MinutedockStub
-./stop
-echo Starting MinutedockStub
-./start
