@@ -9,7 +9,7 @@ minutedock
 3. Clone repo and checkout the release branch or download the latest release.
 4. run 'npm install'
 5. run 'npm install -g gulp'
-6. There is config file, app.json at '\<path_to_repo\>/config.default.json'. Override the properties according to environment name.
+6. There is config file, app.json at '\<path_to_repo\>/config/default.json'. Override the properties according to environment name.
 7. Set use.https to true or false in app.json. Keep it true if you don't have https web server sitting in front of node server.
 8. If using https, create ssl certificates. Create ssl key and ssl cert files. Modify app.json and set ssl.key.path and ssl.cert.path
 9. Regenerate the required salts and secrets mentioned in app.json. Don't use the defaults.
