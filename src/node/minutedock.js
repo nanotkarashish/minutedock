@@ -4,7 +4,6 @@ var path = require('path');
 var passport = require('passport');
 var ejs = require('ejs');
 
-console.log(__dirname + "/../../config/");
 var config = require('config');
 
 var index = require('./routes/index');

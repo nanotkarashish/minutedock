@@ -36,7 +36,7 @@ gulp.task('start', function () {
   return nodemon({
       script: 'src/node/minutedock.js'
       , ext: 'js html'
-      , env: { 'NODE_ENV': 'test' }
+      , env: { 'NODE_ENV': 'test', 'NODE_CONFIG_DIR': 'config' }
     }).on('error', function(e) { console.error(e); });
 });
 
@@ -48,7 +48,7 @@ gulp.task('start-api-stub', function () {
     }).on('error', function(e) { console.error(e); });
 });
 
-gulp.task('test', function(){
+gulp.task('test', ['build', 'start'], function(){
   return gulp.src(['./test/**/*.js'])
     .pipe(protractor({
         'configFile': 'test/conf.js',
