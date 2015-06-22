@@ -6,3 +6,5 @@ minutedock-dist*
 config/app.json
 .idea
 *.iml
+.tags*
+.DS_Store
