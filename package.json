@@ -1,6 +1,6 @@
 {
   "name": "minutedock",
-  "version": "1.0.0",
+  "version": "1.6.4",
   "main": "src/node/minutedock.js",
   "directories": {
     "test": "test"
