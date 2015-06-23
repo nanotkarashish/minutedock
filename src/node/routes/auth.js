@@ -2,7 +2,7 @@ var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var uuid = require('node-uuid');
 
-var config = require('konfig')().app;
+var config = require('config');
 var authTokenRepository = require('../repositories/authTokenRepository');
 var userRepository = require('../repositories/userRepository');
 

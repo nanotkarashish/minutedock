@@ -1,6 +1,6 @@
 var request = require('request');
 var Q = require('q');
-var config = require('konfig')().app;
+var config = require('config');
 var Minutedock = function (apiKey) {
 
     var self = this;

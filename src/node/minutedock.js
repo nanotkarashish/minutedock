@@ -4,7 +4,7 @@ var path = require('path');
 var passport = require('passport');
 var ejs = require('ejs');
 
-var config = require('konfig')().app;
+var config = require('config');
 
 var index = require('./routes/index');
 var auth = require('./routes/auth');

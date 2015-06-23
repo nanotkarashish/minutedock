@@ -1,0 +1,16 @@
+{
+	"minutedock.base.uri": "https://minutedock.com/api/v1/",
+	"ssl.key.path": "./sslcert/key.pem",
+	"ssl.cert.path": "./sslcert/key-cert.pem",
+	"session.cookie.secret": "my favourite password",
+	"app.port": 9443,
+	"mongodb.uri": "mongodb://localhost:27017/minutedock",
+	"identifier.encryption.global.salt": "identifier global salt",
+	"apikey.encryption.global.salt": "apikey global salt",
+	"use.https": false,
+	"google.auth.client.id": "",
+	"google.auth.client.secret": "",
+	"authToken.ttl": "P1D",
+	"oauth.callback.base.url": "http://minutedock.local.com:9443/",
+	"cookie.httpOnly": true
+}
