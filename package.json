@@ -6,6 +6,7 @@
     "test": "test"
   },
   "scripts": {
+    "postinstall": "./node_modules/protractor/bin/webdriver-manager update",
     "test": "./node_modules/protractor/bin/webdriver-manager update; gulp test",
     "start": "ENV=development node src/node/minutedock.js"
   },
