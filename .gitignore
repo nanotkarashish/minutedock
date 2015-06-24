@@ -9,3 +9,4 @@ config/*
 *.iml
 .tags*
 .DS_Store
+dist/
