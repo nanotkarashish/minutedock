@@ -106,6 +106,7 @@ gulp.task('package-dependencies', function(){
   var npm_pkg = require('./package.json');
   delete npm_pkg.scripts.test;
   delete npm_pkg.scripts.postinstall;
+  delete npm_pkg.devDependencies;
   npm_pkg.scripts.start = 'ENV=production forever start -a -l minutedock.log -o ./logs/out.log -e ./logs/err.log src/node/minutedock.js';
 
   return string_src('_package.json', JSON.stringify(npm_pkg))
