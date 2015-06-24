@@ -65,7 +65,7 @@ gulp.task('test', ['build', 'start'], function(){
 });
 
 gulp.task('clean', function(){
-  del('dist');
+  return del('dist');
 });
 
 function string_src(filename, string) {
@@ -114,6 +114,6 @@ gulp.task('package-dependencies', function(){
   .pipe(gulp.dest('dist'));
 });
 
-gulp.task('package', ['package-src', 'package-config', 'package-dependencies', 'package-README'], shell.task(['cd dist && mkdir node_modules && mkdir logs && npm install --production']));
+gulp.task('package', ['package-src', 'package-config', 'package-dependencies', 'package-README'], shell.task(['cd dist && mkdir -p node_modules && mkdir -p logs && npm install --production']));
 
 gulp.task('default', ['build', 'start']);
