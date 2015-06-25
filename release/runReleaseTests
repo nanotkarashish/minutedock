@@ -1,8 +1,0 @@
-cd ../test/minutedockStub/
-./restart
-cd -
-cd minutedock-dist/
-./restart test
-cd -
-cd ../test
-node_modules/.bin/protractor conf.js
