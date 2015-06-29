@@ -114,6 +114,6 @@ gulp.task('package-dependencies', function(){
   .pipe(gulp.dest('dist'));
 });
 
-gulp.task('package', ['package-src', 'package-config', 'package-dependencies', 'package-README'], shell.task(['cd dist && mkdir -p node_modules && mkdir -p logs && npm install --production']));
+gulp.task('package', ['package-src', 'package-config', 'package-dependencies', 'package-README'], shell.task(['cd dist && mkdir -p logs']));
 
 gulp.task('default', ['build', 'start']);
