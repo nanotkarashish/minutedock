@@ -1,5 +1,5 @@
 var gulp = require('gulp')
-	, nodemon = require('gulp-nodemon')
+	, gls = require('gulp-live-server')
 	, rjs = require('gulp-requirejs')
   , minifyCss = require('gulp-minify-css')
   , rename = require('gulp-rename')
@@ -36,23 +36,12 @@ gulp.task('minify-css', function() {
 
 gulp.task('build', ['minify-js', 'minify-css']);
 
-gulp.task('start', function () {
-  return nodemon({
-      script: 'src/node/minutedock.js'
-      , ext: 'js html'
-      , env: { 'NODE_ENV': 'test', 'NODE_CONFIG_DIR': 'config' }
-    }).on('error', function(e) { console.error(e); });
+var server = gls('src/node/minutedock.js', {env: {NODE_ENV: 'test', 'NODE_CONFIG_DIR': 'config'}});
+gulp.task('serve', function() {
+    server.start();
 });
 
-gulp.task('start-api-stub', function () {
-  return nodemon({
-      script: 'test/minutedockStub/stub.js'
-      , ext: 'js'
-      , env: { 'NODE_ENV': 'test' }
-    }).on('error', function(e) { console.error(e); });
-});
-
-gulp.task('test', ['build', 'start'], function(){
+gulp.task('test', ['build', 'serve'], function(){
   return gulp.src(['./test/**/*.js'])
     .pipe(protractor({
         'configFile': 'test/conf.js',
@@ -61,7 +50,12 @@ gulp.task('test', ['build', 'start'], function(){
         'debug': true
     }))
     .on('error', function(e) { console.error(e); process.exit(1); })
-    .on('end', function() { console.log("Done."); process.exit(); });
+    .on('end', function() { 
+        server.stop().then(function(){
+            console.log("Done..Stopping servers");
+            process.exit();
+          }); 
+      });
 });
 
 gulp.task('clean', function(){
