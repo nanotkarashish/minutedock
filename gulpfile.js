@@ -39,6 +39,9 @@ gulp.task('build', ['minify-js', 'minify-css']);
 var server = gls('src/node/minutedock.js', {env: {NODE_ENV: 'test', 'NODE_CONFIG_DIR': 'config'}});
 gulp.task('serve', function() {
     server.start();
+    gulp.watch(['src/**/*'], function() {
+      server.start.apply(server);
+    });
 });
 
 gulp.task('test', ['build', 'serve'], function(){
