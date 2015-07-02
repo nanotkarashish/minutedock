@@ -24,7 +24,7 @@ MongoClient.connect(config["mongodb.uri"], function(err, db) {
     var encryptedApiKey = cipher.update(apiKey, 'utf8', 'base64');
     encryptedApiKey += cipher.final('base64');
 		var document = {identifier : identifier, apiKey : encryptedApiKey, accountId: accountId, recordSalt : recordSalt, date : new Date()};
-		collection.insert(document, function(err, records) {
+		collection.update({identifier : identifier}, document, {upsert:true}, function(err, records) {
 			if(err) throw err;	
 		});		
 	};  
