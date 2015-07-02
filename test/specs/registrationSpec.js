@@ -16,5 +16,29 @@ describe('app', function() {
 		$('#addEntryPanel').click();
 		TestHelper.selectProject('project1');
 		expect($('#contact').getAttribute("value")).toEqual('contact1');
-	});	
+	});
+
+	it("should change a user's API key", function() {
+		driver.get("/",{id:'viewEntries'});
+		TestHelper.clickMenuItem('logout');
+		expect(driver.getCurrentUrl()).toBe('http://minutedock.local.com:9443/login');
+		clearUsers();
+		persistAuthToken();
+		driver.get("/",{id:'apiKey'});		
+		resetSessionCookie();
+		$('#apiKey').sendKeys("valid_api_key");
+		$('#register').click();
+		driver.wait({id:'viewEntries'});
+		$('#addEntryPanel').click();
+		TestHelper.selectProject('project1');
+		
+		TestHelper.clickMenuItem('reset-api-key');
+		expect(driver.getCurrentUrl()).toBe('http://minutedock.local.com:9443/#/register');
+		$('#apiKey').sendKeys("valid_api_key");
+		$('#register').click();
+		driver.wait({id:'viewEntries'});
+		$('#addEntryPanel').click();
+		TestHelper.selectProject('project1');
+		expect($('#contact').getAttribute("value")).toEqual('contact1');
+	});
 });
