@@ -107,7 +107,7 @@ gulp.task('package-config', function () {
 });
 
 gulp.task('package-README', function () {
-    var instructions = "1) Install foreverjs \n2) Set NODE_CONFIG with config vars\n3) Run 'npm start'";
+    var instructions = "1) Install pm2 \n2) Set NODE_CONFIG with config vars\n3) Run 'npm start'";
     return string_src('README.txt', instructions)
         .pipe(gulp.dest('dist'));
 });
@@ -117,7 +117,7 @@ gulp.task('package-dependencies', function () {
     delete npm_pkg.scripts.test;
     delete npm_pkg.scripts.postinstall;
     delete npm_pkg.devDependencies;
-    npm_pkg.scripts.start = 'forever -a -l minutedock.log -o ./logs/out.log -e ./logs/err.log src/node/minutedock.js';
+    npm_pkg.scripts.start = 'pm2 start src/node/minutedock.js';
 
     return string_src('_package.json', JSON.stringify(npm_pkg))
         .pipe(rename('package.json'))
