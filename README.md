@@ -20,3 +20,14 @@ minutedock
 
 #Update Selenium Drivers and Run tests
 Run 'npm test' from '\<path_to_repo\>'
+
+
+Production Setup
+==================
+
+Hosted IP: 54.229.183.159 (AWS EC2)
+
+1. Change to `noderunner` user
+2. cd `/home/noderunner/apps/minutedock`
+3. Run scrips `restart` / `start` / `stop` with `production` as first argument.
+4. Restart Nginx if required.
